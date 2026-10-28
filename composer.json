@@ -1,0 +1,17 @@
+{
+    "name": "ilyaserebryacov/optitrade-web",
+    "description": "B2B platform for warehouse accounting and wholesale orders",
+    "type": "project",
+    "require": {
+        "php": ">=8.2",
+        "illuminate/database": "^11.0",
+        "illuminate/events": "^11.0",
+        "monolog/monolog": "^3.0",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
