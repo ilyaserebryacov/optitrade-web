@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  app:
+    image: php:8.2-cli-alpine
+    container_name: optitrade_app
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=development
+    depends_on:
+      - db
+    command: php -S 0.0.0.0:8000 -t /app
+
+  db:
+    image: postgres:15-alpine
+    container_name: optitrade_db
+    restart: always
+    environment:
+      POSTGRES_DB: optitrade
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
